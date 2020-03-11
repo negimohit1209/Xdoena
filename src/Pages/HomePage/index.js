@@ -32,9 +32,17 @@ class HomePage extends Component {
         <Typography align="center" variant="h5" component="h2">
           {value.fields[0].testName}
         </Typography>
-        {value.fields.map((field, i) => (
-          <StudentCard key={i} field={field} val={value.max || value.min} />
-        ))}
+        <div
+          style={{
+            overflowX: "scroll",
+            overflowY: "hidden",
+            whiteSpace: "nowrap"
+          }}
+        >
+          {value.fields.map((field, i) => (
+            <StudentCard key={i} field={field} val={value.max || value.min} />
+          ))}
+        </div>
       </div>
     ));
     return (

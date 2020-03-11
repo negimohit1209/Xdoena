@@ -5,6 +5,7 @@ import compose from "lodash/fp/compose";
 import Button from "@material-ui/core/Button";
 import Switch from "@material-ui/core/Switch";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Typography from "@material-ui/core/Typography";
 
 const styles = theme => ({
   root: {
@@ -25,10 +26,12 @@ const styles = theme => ({
 
 class Jobform extends Component {
   state = {
+    error: "",
     name: "",
     type: true,
     testName: "",
-    value: 0
+    value: 0,
+    sucess: false
   };
   toggleType = () => {
     let type = this.state.type;
@@ -43,6 +46,11 @@ class Jobform extends Component {
   };
   render() {
     const { classes } = this.props;
+    const isValid = val => val !== "";
+    const isValidNo = val => {
+      var regexp = /^(\d*\.)?\d+$/;
+      return regexp.test(val);
+    };
     return (
       <form
         className={classes.root}
@@ -50,7 +58,26 @@ class Jobform extends Component {
         autoComplete="off"
         onSubmit={event => {
           event.preventDefault();
-          this.props.addData(this.state);
+          if (!isValid(this.state.name) || !isValid(this.state.testName)) {
+            this.setState({
+              error: "Please enter Name and TestName correctly"
+            });
+          } else if (!isValidNo(this.state.value)) {
+            this.setState({
+              error: "Please enter a correct no."
+            });
+          } else {
+            this.setState({
+              error: "",
+              success: true
+            });
+            this.props.addData(this.state);
+            setTimeout(() => {
+              this.setState({
+                success: false
+              });
+            }, 2000);
+          }
         }}
       >
         <div className={classes.formFeild}>
@@ -101,7 +128,20 @@ class Jobform extends Component {
               labelPlacement="start"
             />
           </div>
+          <Typography variant="h6" component="h4" style={{ color: "#e53935" }}>
+            {this.state.error}
+          </Typography>
+          {this.state.success ? (
+            <Typography
+              variant="h6"
+              component="h4"
+              style={{ color: "#43A047" }}
+            >
+              Added sucessfully
+            </Typography>
+          ) : null}
         </div>
+
         <div className={classes.button}>
           <Button variant="contained" color="primary" type="submit">
             Submit
