@@ -30,7 +30,7 @@ class Jobform extends Component {
     name: "",
     type: true,
     testName: "",
-    value: 0,
+    value: "",
     sucess: false
   };
   toggleType = () => {

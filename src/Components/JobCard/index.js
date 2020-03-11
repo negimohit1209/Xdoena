@@ -110,6 +110,9 @@ export default function OutlinedCard(props) {
             {props.field.name}
           </Typography>
           <Typography className={classes.pos} color="textSecondary">
+            Score: {props.field.score}
+          </Typography>
+          <Typography className={classes.pos} color="textSecondary">
             Percentile: {props.field.percentile.toFixed(2)}
           </Typography>
           <Typography

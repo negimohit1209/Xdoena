@@ -12,15 +12,6 @@ const styles = theme => ({
     "& > *": {
       marginTop: theme.spacing(2)
     }
-  },
-  form: {
-    minWidth: 275,
-    maxWidth: 800,
-    margin: "10px auto"
-  },
-  test: {
-    minWidth: 275,
-    margin: "10px 25px"
   }
 });
 class HomePage extends Component {
@@ -28,7 +19,13 @@ class HomePage extends Component {
     const { classes } = this.props;
     let items = Object.values(this.props.data);
     let test = items.map((value, i) => (
-      <div key={i} className={classes.test}>
+      <div
+        key={i}
+        style={{
+          minWidth: 275,
+          margin: "10px 25px"
+        }}
+      >
         <Typography align="center" variant="h5" component="h2">
           {value.fields[0].testName}
         </Typography>
@@ -48,7 +45,13 @@ class HomePage extends Component {
     return (
       <div className={classes.root}>
         <Appbar />
-        <div className={classes.form}>
+        <div
+          style={{
+            minWidth: 275,
+            maxWidth: 800,
+            margin: "10px auto"
+          }}
+        >
           <Paper variant="outlined">
             <Typography align="center" variant="h5" component="h2">
               Create fleld

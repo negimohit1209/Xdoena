@@ -23,9 +23,15 @@ function ButtonAppBar(props) {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <Typography variant="h6" className={classes.title}>
-            Mohit
-          </Typography>
+          <a
+            style={{ color: "#ffffff" }}
+            target="_blank"
+            href="https://negimohit-web.web.app/"
+          >
+            <Typography variant="h6" className={classes.title}>
+              Mohit Negi
+            </Typography>
+          </a>
         </Toolbar>
       </AppBar>
     </div>
