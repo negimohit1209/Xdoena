@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { withStyles } from "@material-ui/styles";
 import compose from "lodash/fp/compose";
 import Appbar from "../../Components/Appbar/Appbar";
-import Form from "../CreateJobPage/JobForm/Jobform";
+import Form from "../CreateField/FieldForm/FieldForm";
 import Paper from "@material-ui/core/Paper";
 import StudentCard from "../../Components/JobCard";
 import Typography from "@material-ui/core/Typography";

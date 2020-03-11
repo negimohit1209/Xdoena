@@ -6,7 +6,7 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 
 import Appbar from "../../Components/Appbar/Appbar";
-import JobForm from "./JobForm/Jobform";
+import JobForm from "./FieldForm/FieldForm";
 import * as actions from "../../Store/actions";
 
 const styles = theme => ({
